@@ -8,6 +8,9 @@ namespace ShuttleLocator.Services
 {
     public class HttpWebRequestService
     {
+        /// <summary>
+        /// 请求标头
+        /// </summary>
         public static WebHeaderCollection Headers;
         /// <summary>
         /// 远程请求数据服务
