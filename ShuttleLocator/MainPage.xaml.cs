@@ -1,5 +1,12 @@
-﻿using System.Windows;
+﻿using System;
+using System.Diagnostics;
+using System.Linq;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Navigation;
 using ShuttleLocator.Common;
+using ShuttleLocator.View.Controls;
+using ShuttleLocator.ViewModel;
 
 namespace ShuttleLocator
 {
@@ -9,15 +16,29 @@ namespace ShuttleLocator
         public MainPage()
         {
             InitializeComponent();
-
+            DrawStations();
             // 用于本地化 ApplicationBar 的示例代码
             //BuildLocalizedApplicationBar();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void DrawStations()
         {
-            var test = new Test();
-            test.StartTest();
+            var vmStations = new ViewModelOfStations();
+            var stations = await vmStations.GetDataModel();
+            StationViewControl.DataContext = from station in stations where true select station;
+        }
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var vmStations = new ViewModelOfStations();
+            var stations = await vmStations.GetDataModel();
+            Debug.WriteLine("==============================");
+            foreach (var station in stations)
+            {
+                Debug.WriteLine("Button cliked!!!{0}", station.Name);
+            }
+            Debug.WriteLine("==============================");
+            //StationViewControl.DataContext = from station in vmStations.Stations where true select station;
         }
 
         // 用于生成本地化 ApplicationBar 的示例代码

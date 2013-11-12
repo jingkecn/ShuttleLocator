@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="ShuttleLocator.View.Controls.StationView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="480" d:DesignWidth="220">
+    
+    <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}">
+        <ListBox ItemsSource="{Binding}" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="0, -10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="160" />
+                            <ColumnDefinition Width="60" />
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" Name="StationButton" Content="{Binding Path=Name, Mode=OneWay}" Background="#33333333" Foreground="#FF333333" BorderBrush="#33333333" Padding="0" FontSize="25" d:DataContext="{d:DesignData Station}" Click="Button_Click"/>
+                        <Ellipse Grid.Column="1" Height="30" Width="30" StrokeThickness="15" Stroke="#FF56C2E8" />
+                        <Ellipse Grid.Column="1" Height="15" Width="15" StrokeThickness="15" Stroke="White"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</UserControl>

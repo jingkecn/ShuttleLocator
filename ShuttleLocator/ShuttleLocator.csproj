@@ -121,6 +121,9 @@
     <Compile Include="ViewModel\ViewModelOfNotices.cs" />
     <Compile Include="ViewModel\ViewModelOfShuttles.cs" />
     <Compile Include="ViewModel\ViewModelOfStations.cs" />
+    <Compile Include="View\Controls\StationView.xaml.cs">
+      <DependentUpon>StationView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -128,6 +131,10 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Controls\StationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -182,7 +189,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Animations\" />
-    <Folder Include="View\Controls\" />
     <Folder Include="View\Pages\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
